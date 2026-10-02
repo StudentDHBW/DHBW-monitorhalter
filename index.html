@@ -1,13 +1,715 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>DHBW Konstruktionsprojekt</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mount Ing. – gasfederunterstützte, schwenk- und höhenverstellbare Monitorhalterung.">
+  <title>Mount Ing. — Your screen, your Position.</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!--
+    Mount Ing. – One-Page-Projektwebsite
+    Alles ist bewusst ohne Frameworks gebaut: nur HTML, CSS und ein kleines bisschen JavaScript.
+  -->
 
-    <h1>Monitorhalter</h1>
-    <p>Konstruktionsprojekt an der DHBW Karlsruhe</p>
+  <div class="noise" aria-hidden="true"></div>
 
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mount Ing. Startseite">
+      <span class="brand-mark">M</span>
+      <span class="brand-name">MOUNT <strong>ING.</strong></span>
+    </a>
+
+    <button class="menu-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span>
+    </button>
+
+    <nav id="main-nav" class="nav">
+      <a href="#produkt">Produkt</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#material">Material</a>
+      <a href="#prozess">Prozess</a>
+      <a href="#downloads">Dokumentation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> KONSTRUKTION · 2026</p>
+        <h1>Dein Monitor.<br><em>Genau in Position.</em></h1>
+
+        <p class="hero-text">
+          Eine wandmontierte Monitorhalterung mit Parallelogramm-Kinematik,
+          Gasfederunterstützung und manueller Klemmung – entwickelt für flexible
+          Positionierung bei hoher Stabilität.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#engineering">Technik entdecken <span>↘</span></a>
+          <a class="button button-secondary" href="downloads/gesamtzeichnung-monitorhalterung.pdf" target="_blank">Zeichnung öffnen</a>
+        </div>
+
+        <p class="tagline">Mount Ing. <span>—</span> Your screen, your Position.</p>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Schematische Darstellung der Monitorhalterung">
+        <div class="visual-glow"></div>
+
+        <svg class="mount-sketch" viewBox="0 0 920 620" role="img" aria-labelledby="mount-title mount-desc">
+          <title id="mount-title">Mount Ing. Monitorhalterung</title>
+          <desc id="mount-desc">Technische, schematische Darstellung der Wandhalterung mit zwei Armen, Gasfeder, VESA-Platte und Monitor.</desc>
+
+          <defs>
+            <linearGradient id="screenFill" x1="0" x2="1">
+              <stop offset="0%" stop-color="#141a23"/>
+              <stop offset="100%" stop-color="#0e1218"/>
+            </linearGradient>
+            <linearGradient id="armFill" x1="0" x2="1">
+              <stop offset="0%" stop-color="#303d50"/>
+              <stop offset="100%" stop-color="#1c2634"/>
+            </linearGradient>
+          </defs>
+
+          <!-- construction grid -->
+          <g class="grid-lines" opacity=".22">
+            <path d="M40 90H880M40 170H880M40 250H880M40 330H880M40 410H880M40 490H880"/>
+            <path d="M100 45V560M220 45V560M340 45V560M460 45V560M580 45V560M700 45V560M820 45V560"/>
+          </g>
+
+          <!-- wall -->
+          <rect x="70" y="145" width="34" height="330" rx="9" class="metal-fill"/>
+          <circle cx="87" cy="190" r="6" class="accent-fill"/>
+          <circle cx="87" cy="430" r="6" class="accent-fill"/>
+
+          <!-- arm 1 -->
+          <path d="M102 310 L250 310" class="arm-line thick"/>
+          <circle cx="110" cy="310" r="18" class="joint"/>
+          <circle cx="250" cy="310" r="18" class="joint"/>
+
+          <!-- connector -->
+          <rect x="236" y="252" width="33" height="116" rx="13" class="metal-fill"/>
+
+          <!-- parallelogram arms -->
+          <path d="M255 270 L555 210" class="arm-line very-thick"/>
+          <path d="M255 350 L555 290" class="arm-line very-thick"/>
+          <circle cx="555" cy="210" r="17" class="joint"/>
+          <circle cx="555" cy="290" r="17" class="joint"/>
+
+          <!-- gas spring -->
+          <path d="M275 347 L470 247" class="spring-body"/>
+          <path d="M470 247 L515 224" class="spring-rod"/>
+          <circle cx="275" cy="347" r="9" class="spring-joint"/>
+          <circle cx="515" cy="224" r="9" class="spring-joint"/>
+
+          <!-- VESA connection -->
+          <rect x="542" y="174" width="32" height="160" rx="11" class="metal-fill"/>
+          <rect x="573" y="148" width="20" height="205" rx="8" class="accent-fill"/>
+
+          <!-- Monitor -->
+          <rect x="598" y="112" width="268" height="284" rx="18" fill="url(#screenFill)" class="screen"/>
+          <rect x="615" y="129" width="234" height="245" rx="10" class="screen-inner"/>
+          <path d="M690 419H770M730 396V419" class="monitor-stand" opacity=".55"/>
+
+          <!-- dimension arrows -->
+          <path d="M112 508H592" class="dim-line"/>
+          <path d="M112 497V519M592 497V519" class="dim-tick"/>
+          <text x="352" y="540" text-anchor="middle" class="dim-text">152–652 mm Wandabstand</text>
+
+          <path d="M885 167V337" class="dim-line"/>
+          <path d="M874 167H896M874 337H896" class="dim-tick"/>
+          <text x="900" y="252" transform="rotate(90 900 252)" text-anchor="middle" class="dim-text">±200 mm</text>
+
+          <!-- labels -->
+          <g class="sketch-label">
+            <rect x="443" y="82" width="118" height="39" rx="19"/>
+            <text x="502" y="107" text-anchor="middle">10 kg MAX</text>
+          </g>
+          <g class="sketch-label">
+            <rect x="669" y="48" width="132" height="39" rx="19"/>
+            <text x="735" y="73" text-anchor="middle">VESA 75 / 100</text>
+          </g>
+
+          <path d="M530 126L500 190" class="callout"/>
+          <text x="469" y="121" class="callout-text">Gasfeder</text>
+
+          <path d="M375 190L395 252" class="callout"/>
+          <text x="295" y="182" class="callout-text">Parallelogramm</text>
+        </svg>
+
+        <div class="visual-caption">
+          <span class="pulse-dot"></span>
+          FINAL CONCEPT · SOLIDWORKS
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI -->
+    <section class="metrics reveal" aria-label="Technische Kennwerte">
+      <article>
+        <span class="metric-number">10</span><span class="metric-unit">kg</span>
+        <p>max. Monitorlast</p>
+      </article>
+      <article>
+        <span class="metric-number">500</span><span class="metric-unit">mm</span>
+        <p>horizontal rechts / links</p>
+      </article>
+      <article>
+        <span class="metric-number">±200</span><span class="metric-unit">mm</span>
+        <p>Höhenverstellung</p>
+      </article>
+      <article>
+        <span class="metric-number">75 / 100</span><span class="metric-unit">mm</span>
+        <p>VESA-Lochmuster</p>
+      </article>
+    </section>
+
+    <!-- PRODUCT -->
+    <section id="produkt" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> PRODUKT</p>
+        <h2>Eine Halterung.<br><em>Viele Positionen.</em></h2>
+        <p>
+          Das System kombiniert lineare Reichweite, Höhenverstellung und Schwenkbewegungen,
+          ohne den Monitor jedes Mal neu montieren zu müssen.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <span class="card-index">01</span>
+          <div class="feature-icon horizontal-icon" aria-hidden="true">↔</div>
+          <h3>Wandabstand</h3>
+          <p>Von <strong>152 bis 652 mm</strong> – kompakt an der Wand oder weit in den Raum ausgefahren.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span class="card-index">02</span>
+          <div class="feature-icon" aria-hidden="true">↕</div>
+          <h3>Höhe</h3>
+          <p>Ein vertikaler Verstellbereich von <strong>±200 mm</strong> wird über das Parallelogramm realisiert.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span class="card-index">03</span>
+          <div class="feature-icon" aria-hidden="true">⤢</div>
+          <h3>Seitlich</h3>
+          <p><strong>500 mm rechts und links</strong> sorgen für einen großen horizontalen Arbeitsbereich.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span class="card-index">04</span>
+          <div class="feature-icon" aria-hidden="true">⟳</div>
+          <h3>Schwenken</h3>
+          <p>Der Monitor lässt sich um die Hochachse um <strong>±20°</strong> schwenken.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ENGINEERING -->
+    <section id="engineering" class="section engineering-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> ENGINEERING</p>
+        <h2>Mechanik,<br><em>die mitarbeitet.</em></h2>
+        <p>
+          Die Höhenverstellung basiert nicht auf einem starren Gelenk, sondern auf einem
+          gasfederunterstützten Parallelogramm. Dadurch bleibt die Bedienkraft kontrollierbar
+          und das Restmoment kann manuell geklemmt werden.
+        </p>
+      </div>
+
+      <div class="engineering-layout">
+        <article class="engineering-main reveal">
+          <div class="engineering-kicker">01 · KINEMATIK</div>
+          <h3>Parallelogramm statt Kompromiss.</h3>
+          <p>
+            Zwei gleichlange Arm-2-Profile mit einem Gelenkabstand von 315 mm bilden die
+            zentrale Höhenkinematik. Für die geforderten ±200 mm ergibt sich ein notwendiger
+            Armwinkel von rund ±39,4°.
+          </p>
+
+          <div class="mini-diagram" aria-hidden="true">
+            <div class="mini-wall"></div>
+            <div class="mini-joint j1"></div>
+            <div class="mini-joint j2"></div>
+            <div class="mini-joint j3"></div>
+            <div class="mini-joint j4"></div>
+            <div class="mini-arm top"></div>
+            <div class="mini-arm bottom"></div>
+            <div class="mini-spring"></div>
+          </div>
+
+          <div class="engineering-note">
+            <span>Gelenkabstand</span>
+            <strong>315 mm</strong>
+          </div>
+        </article>
+
+        <div class="engineering-side">
+          <article class="tech-card reveal">
+            <div class="tech-card-head">
+              <span class="tech-icon">GF</span>
+              <div>
+                <p class="small-label">GASFEDER</p>
+                <h3>SUSPA 16-4</h3>
+              </div>
+            </div>
+
+            <p>
+              Der Anschluss wurde auf <strong>250 mm</strong> optimiert. Die ausgewählte SUSPA-16-4-Gasfeder wird mit <strong>850 N Ausschubkraft</strong> konfiguriert und bietet mit 95 mm Hub ausreichend Reserve gegenüber dem rechnerisch benötigten Arbeitsweg von 47,92 mm.
+            </p>
+
+            <dl class="spec-list">
+              <div><dt>Auslegungsbereich</dt><dd>ca. 764–925 N</dd></div>
+              <div><dt>gewählte Ausschubkraft</dt><dd>850 N</dd></div>
+              <div><dt>Hub Kaufteil</dt><dd>95 mm</dd></div>
+              <div><dt>Länge ausgefahren</dt><dd>283 mm</dd></div>
+              <div><dt>Länge eingefahren</dt><dd>188 mm</dd></div>
+              <div><dt>Kolbenstange / Rohr</dt><dd>Ø10 / Ø22 mm</dd></div>
+            </dl>
+
+            <a class="text-link" href="downloads/gasfeder-suspa.pdf" target="_blank">Datenblatt ansehen ↗</a>
+          </article>
+
+          <article class="tech-card reveal">
+            <div class="tech-card-head">
+              <span class="tech-icon">KH</span>
+              <div>
+                <p class="small-label">KLEMMUNG</p>
+                <h3>Norelem 06600-50-1061</h3>
+              </div>
+            </div>
+
+            <p>
+              Der Klemmhebel nimmt das verbleibende Restmoment auf. Aus der Auslegung ergibt
+              sich eine erforderliche Klemmkraft von rund <strong>3,47 kN</strong>.
+            </p>
+
+            <dl class="spec-list">
+              <div><dt>Innengewinde</dt><dd>M6</dd></div>
+              <div><dt>Grundkörper</dt><dd>Hochleistungsthermoplast</dd></div>
+              <div><dt>Farbe</dt><dd>RAL 7021</dd></div>
+              <div><dt>Länge A1</dt><dd>46,8 mm</dd></div>
+              <div><dt>Gewicht</dt><dd>ca. 12,1 g</dd></div>
+            </dl>
+
+            <p class="fine-print">
+              Die 3,47 kN sind eine Anforderung aus der eigenen Auslegung – keine
+              Herstellerangabe des Klemmhebels.
+            </p>
+
+            <a class="text-link" href="downloads/klemmhebel-norelem.pdf" target="_blank">Datenblatt ansehen ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATION -->
+    <section class="section proof-section">
+      <div class="proof-panel reveal">
+        <div>
+          <p class="eyebrow"><span></span> AUSLEGUNG</p>
+          <h2>Grob dimensioniert.<br><em>Nachvollziehbar nachgewiesen.</em></h2>
+          <p>
+            Die Bauteile wurden nicht nur geometrisch modelliert. Kräfte, Spannungen,
+            Lochleibung, Ausreißen, Bolzenbeanspruchung und kritische Querschnitte wurden
+            für die grobe Bauteildimensionierung geprüft.
+          </p>
+        </div>
+
+        <div class="proof-values">
+          <article>
+            <span>Ziel-Sicherheit</span>
+            <strong>s = 2,0</strong>
+          </article>
+          <article>
+            <span>Arm 1</span>
+            <strong>s ≈ 3,26</strong>
+          </article>
+          <article>
+            <span>Wandhalter</span>
+            <strong>s ≈ 8,89</strong>
+          </article>
+          <article>
+            <span>kritischer Arm-2-Nachweis</span>
+            <strong>s ≈ 1,98 ≈ 2</strong>
+          </article>
+        </div>
+      </div>
+
+      <div class="detail-row reveal">
+        <details>
+          <summary>
+            <span>Bolzen</span>
+            <strong>Festigkeitsklasse 8.8</strong>
+          </summary>
+          <p>
+            Der kritisch betrachtete Ø6-mm-Bolzen wird in Doppelscherung und zusätzlich
+            auf Biegung untersucht. Die konservativ ermittelte Vergleichsspannung bleibt
+            unter der für die Auslegung angesetzten zulässigen Spannung.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            <span>Drehteil</span>
+            <strong>42CrMo4 + QT</strong>
+          </summary>
+          <p>
+            Durch die außermittige Gasfederanbindung war ein zusätzliches gestuftes Drehteil
+            notwendig. Es führt die Gasfeder kollisionsfrei am Arm 2 vorbei und überträgt
+            die Kraft in die beiden U-Profil-Schenkel.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            <span>Gasfederanschluss</span>
+            <strong>250 mm optimiert</strong>
+          </summary>
+          <p>
+            Der ursprüngliche Anschluss bei 125 mm hätte eine deutlich größere
+            Kraftschwankung erzeugt. Mit 250 mm liegt die berechnete Gasfederkraft über
+            die drei untersuchten Stellungen ungefähr zwischen 764 und 925 N.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- MATERIALS -->
+    <section id="material" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> MATERIAL & FERTIGUNG</p>
+        <h2>Jedes Bauteil<br><em>bekommt seinen Prozess.</em></h2>
+        <p>
+          Materialwahl und Fertigungsverfahren wurden an Geometrie, Belastung und
+          wirtschaftliche Herstellbarkeit angepasst.
+        </p>
+      </div>
+
+      <div class="material-grid">
+        <article class="material-card reveal">
+          <span class="material-code">01</span>
+          <h3>Wandhalter</h3>
+          <p class="material-name">G20Mn5+N · 1.6220</p>
+          <p>Sandguss, Normalisieren, Planfräsen, Bohren und Pulverbeschichten.</p>
+        </article>
+
+        <article class="material-card reveal">
+          <span class="material-code">02</span>
+          <h3>Arm 1</h3>
+          <p class="material-name">EN AW-6082-T6</p>
+          <p>Strangpressprofil, Ablängen, CNC-Fräsen, Bohren, Entgraten und Eloxieren.</p>
+        </article>
+
+        <article class="material-card reveal">
+          <span class="material-code">03</span>
+          <h3>Verbindungsstücke</h3>
+          <p class="material-name">EN AW-6082-T6</p>
+          <p>15-mm-Blech, CNC-Außenkontur und Taschen, Bohren, Verrunden und Eloxieren.</p>
+        </article>
+
+        <article class="material-card reveal">
+          <span class="material-code">04</span>
+          <h3>Arm 2 · 2×</h3>
+          <p class="material-name">EN AW-6082-T6</p>
+          <p>U-Profil, Sägen, CNC-Freischnitte, Bohren, Entgraten und Eloxieren.</p>
+        </article>
+
+        <article class="material-card reveal">
+          <span class="material-code">05</span>
+          <h3>VESA-Platte</h3>
+          <p class="material-name">EN-AC-44400</p>
+          <p>Aluminium-Druckguss, Entgraten, Bohren/Reiben und Oberflächenbehandlung.</p>
+        </article>
+
+        <article class="material-card reveal">
+          <span class="material-code">06</span>
+          <h3>Drehteil</h3>
+          <p class="material-name">42CrMo4 + QT</p>
+          <p>Gestufte Stahlkomponente zur außermittigen, kollisionsfreien Gasfederanbindung.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="prozess" class="section process-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> ENTWICKLUNG</p>
+        <h2>Von „Wie?“<br><em>zu „So.“</em></h2>
+        <p>
+          Die Konstruktion entstand iterativ: erst Anforderungen verstehen, dann grob
+          konstruieren, rechnen, Kaufteile auswählen und die Geometrie gezielt verfeinern.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-no">01</div>
+          <div>
+            <p class="small-label">ANFORDERUNGEN</p>
+            <h3>Problem definieren</h3>
+            <p>Wandmontage, 10 kg Last, VESA, Höhen- und Seitenverstellung sowie manuelle Feststellbarkeit.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-no">02</div>
+          <div>
+            <p class="small-label">KONZEPT</p>
+            <h3>Parallelogramm + Gasfeder</h3>
+            <p>Die erste Idee mit mehreren Klemmgelenken wurde verworfen. Das Parallelogramm bietet die bessere Höhenkinematik.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-no">03</div>
+          <div>
+            <p class="small-label">CAD</p>
+            <h3>Grob zu fein</h3>
+            <p>Erst wurde die grundsätzliche Geometrie in SolidWorks aufgebaut, anschließend anhand der Berechnungen angepasst.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-no">04</div>
+          <div>
+            <p class="small-label">AUSLEGUNG</p>
+            <h3>Kräfte statt Bauchgefühl</h3>
+            <p>Gasfeder, Bolzen, Schrauben, Klemmung und kritische Bauteilquerschnitte wurden rechnerisch betrachtet.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-no">05</div>
+          <div>
+            <p class="small-label">DETAILLIERUNG</p>
+            <h3>Kaufteile integrieren</h3>
+            <p>Mit realen Normteilen wurden Kollisionen sichtbar – daraus entstand unter anderem das zusätzliche Drehteil.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-no">06</div>
+          <div>
+            <p class="small-label">FINAL</p>
+            <h3>Zeichnung & Dokumentation</h3>
+            <p>Einzelteile, Gesamtbaugruppe, Stückliste, Fertigungskonzept und Nachweise bilden die finale Abgabe.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DRAWING -->
+    <section class="section drawing-section">
+      <div class="drawing-copy reveal">
+        <p class="eyebrow"><span></span> CAD</p>
+        <h2>Technik<br><em>im Detail.</em></h2>
+        <p>
+          Die finale Baugruppe bildet den vollständigen Verstellbereich ab und enthält
+          Gasfeder, Klemmhebel, Bolzen sowie die VESA-Aufnahme.
+        </p>
+        <a class="button button-primary" href="downloads/gesamtzeichnung-monitorhalterung.pdf" target="_blank">Gesamtzeichnung öffnen ↗</a>
+      </div>
+
+      <a class="drawing-preview reveal" href="downloads/gesamtzeichnung-monitorhalterung.pdf" target="_blank" aria-label="Gesamtzeichnung als PDF öffnen">
+        <img src="assets/gesamtzeichnung.png" alt="Gesamtzeichnung der Mount Ing. Monitorhalterung">
+        <span>PDF · Gesamtzeichnung</span>
+      </a>
+    </section>
+
+    <!-- TECH DATA -->
+    <section class="section data-section">
+      <div class="section-heading compact reveal">
+        <p class="eyebrow"><span></span> TECHNISCHE DATEN</p>
+        <h2>Die Zahlen<br><em>auf einen Blick.</em></h2>
+      </div>
+
+      <div class="data-table reveal">
+        <div><span>Maximale Monitorlast</span><strong>10 kg</strong></div>
+        <div><span>Wandabstand</span><strong>152–652 mm</strong></div>
+        <div><span>Höhenverstellung</span><strong>±200 mm</strong></div>
+        <div><span>Horizontaler Verstellbereich</span><strong>500 mm rechts / links</strong></div>
+        <div><span>Schwenkbereich Hochachse</span><strong>±20°</strong></div>
+        <div><span>Monitoraufnahme</span><strong>VESA 75 × 75 / 100 × 100</strong></div>
+        <div><span>Arm 1</span><strong>225 mm</strong></div>
+        <div><span>Arm 2</span><strong>325 mm · 315 mm Gelenkabstand</strong></div>
+        <div><span>Gasfeder</span><strong>SUSPA 16-4 · 95 mm Hub</strong></div>
+        <div><span>Klemmhebel</span><strong>Norelem · M6</strong></div>
+        <div><span>Gelenkbolzen</span><strong>Ø6 mm / Ø8 mm · mit Splintsicherung</strong></div>
+        <div><span>VESA-Schrauben</span><strong>4 × M4 × 12 mm · Flachkopf Innensechskant</strong></div>
+        <div><span>Empfehlung Wandmontage</span><strong>Fischer DuoPower 12×60 S · M8×80 mm</strong></div>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="section download-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> DOKUMENTATION</p>
+        <h2>Alles,<br><em>was dahinter steckt.</em></h2>
+        <p>
+          Die Website ist mit dem finalen Stand der Projektdokumentation abgeglichen.
+          Die Unterlagen unten entsprechen den aktuell bereitgestellten Dokumenten.
+        </p>
+      </div>
+
+      <p class="download-group-title reveal">Projekt & empfohlene Lesereihenfolge</p>
+      <div class="download-grid">
+        <a class="download-card reveal" href="downloads/dokumentation-making-of.pdf" target="_blank">
+          <span class="file-type">PDF</span>
+          <div><h3>Making-of & Lesehinweis</h3><p>Entwicklungsprozess und Überblick über die Dokumentation</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/material-und-fertigung.pdf" target="_blank">
+          <span class="file-type">01</span>
+          <div><h3>Material & Fertigung</h3><p>Werkstoffe, Fertigungsverfahren und Begründungen</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/konstruktionsbegruendung.pdf" target="_blank">
+          <span class="file-type">02</span>
+          <div><h3>Konstruktionsbegründung</h3><p>Warum die Bauteile genau so gestaltet wurden</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/wandabstand-und-hoehenverstellung.pdf" target="_blank">
+          <span class="file-type">03</span>
+          <div><h3>Wandabstand & Höhenverstellung</h3><p>Kinematik, Bewegungsstudie und Verstellbereiche</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/stueckliste.pdf" target="_blank">
+          <span class="file-type">04</span>
+          <div><h3>Stückliste</h3><p>15 Positionen inklusive Kauf- und Normteilen</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/bolzenauslegung.pdf" target="_blank">
+          <span class="file-type">05</span>
+          <div><h3>Bolzenauslegung</h3><p>Auslegung der Ø6- und Ø8-mm-Gelenkbolzen</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/schraubenauslegung.pdf" target="_blank">
+          <span class="file-type">06</span>
+          <div><h3>Schraubenauslegung</h3><p>Wandbefestigung, VESA-Schrauben und Klemmhebelschraube</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/gasdruckfederauslegung.pdf" target="_blank">
+          <span class="file-type">07</span>
+          <div><h3>Gasdruckfederauslegung</h3><p>Geometrie, Arbeitsweg und Auswahl der 850-N-Gasfeder</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/bauteilauslegung-festigkeitsberechnung.pdf" target="_blank">
+          <span class="file-type">08</span>
+          <div><h3>Bauteilauslegung & Festigkeit</h3><p>Kräfte, Spannungen und Nachweise der kritischen Querschnitte</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+      </div>
+
+      <p class="download-group-title reveal">Finale Zeichnungen</p>
+      <div class="download-grid">
+        <a class="download-card reveal" href="downloads/gesamtzeichnung-monitorhalterung.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>Gesamtzeichnung</h3><p>Aktueller Stand der vollständigen Monitorhalterung</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/wandhalter.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>Wandhalter</h3><p>Einzelteilzeichnung</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/arm-1.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>Arm 1</h3><p>Einzelteilzeichnung</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/arm-2.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>Arm 2</h3><p>Einzelteilzeichnung</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/verbindungsstueck.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>Verbindungsstück</h3><p>Einzelteilzeichnung</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/vesaplatte.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>VESA-Platte</h3><p>Einzelteilzeichnung</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/drehteil.pdf" target="_blank">
+          <span class="file-type">CAD</span>
+          <div><h3>Drehteil</h3><p>Einzelteilzeichnung des Gasfeder-Adapters</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+      </div>
+
+      <p class="download-group-title reveal">Kaufteile</p>
+      <div class="download-grid">
+        <a class="download-card reveal" href="downloads/gasfeder-suspa.pdf" target="_blank">
+          <span class="file-type">PDF</span>
+          <div><h3>SUSPA Gasfeder</h3><p>Datenblatt Typ 16-4 · 283 mm · 95 mm Hub</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+
+        <a class="download-card reveal" href="downloads/klemmhebel-norelem.pdf" target="_blank">
+          <span class="file-type">PDF</span>
+          <div><h3>Norelem Klemmhebel</h3><p>06600-50-1061 · Innengewinde M6</p></div>
+          <span class="download-arrow">↗</span>
+        </a>
+      </div>
+
+      <aside class="site-transparency reveal">
+        <p class="small-label">TRANSPARENZ · WEBSITE</p>
+        <h3>Erstellt mit Unterstützung von KI und GitHub Pages.</h3>
+        <p>
+          Die technischen Inhalte und Berechnungen basieren auf unserer Projektdokumentation.
+          Für Gestaltung und Umsetzung der Website mit HTML, CSS und JavaScript wurde
+          generative KI unterstützend eingesetzt. Veröffentlicht wird die Website über
+          <strong>GitHub Pages</strong>; die Einrichtung erfolgte anhand der offiziellen
+          GitHub-Anleitung „Schnellstart für GitHub Pages“.
+        </p>
+        <a class="text-link" href="https://docs.github.com/de/pages/quickstart" target="_blank" rel="noopener">
+          Offizielle GitHub-Pages-Anleitung ↗
+        </a>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark">M</span>
+        <span class="brand-name">MOUNT <strong>ING.</strong></span>
+      </a>
+      <p>Your screen, your Position.</p>
+    </div>
+
+    <div class="footer-meta">
+      <p>Konstruktion 2 · 2026</p>
+      <p>Monitorhalterung · 4417650 & 3803802</p>
+      <p>Website mit KI-Unterstützung · GitHub Pages</p>
+    </div>
+
+    <a class="back-top" href="#top" aria-label="Nach oben">↑</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
